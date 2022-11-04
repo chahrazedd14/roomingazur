@@ -1,0 +1,15 @@
+CREATE TABLE `rent` (
+  `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `room_num` int NOT NULL,
+  `room_type` VARCHAR(255) NOT NULL,
+  `firstname` VARCHAR(255) NOT NULL,
+  `lastname` VARCHAR(255) NULL,
+  `date` Date NOT NULL 
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+
+CREATE TABLE `room` (
+  `id` int NOT NULL PRIMARY KEY AUTO_INCREMENT,
+  `room_num` INT UNIQUE NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=UTF8;
