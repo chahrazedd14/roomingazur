@@ -1,6 +1,6 @@
 <?php
-define("DB_HOST", "dc834019-001.eu.clouddb.ovh.net");
-define("DB_USER", "admin");
-define("DB_PASS", "Sherashera26");
-define("DB_PORT", "35957");
-define("DB_NAME", "rooming");
+define("DB_HOST", "mmvrooming-server.mysql.database.azure.com");
+define("DB_USER", "mgcztrvjfb");
+define("DB_PASS", "8A2R66IEF281CB16$");
+define("DB_PORT", "3306");
+define("DB_NAME", "mmvrooming-database");
