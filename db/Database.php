@@ -42,6 +42,7 @@ class Database
     {
         $mysqli = new mysqli($host, $user, $pass, $dbname, $port);
         $mysqli->set_charset("utf8");
+        $mysqli->set_ssl(null, null, null, "DigiCertGlobalRootCA.crt.pem", null);
         return $mysqli;
     }
 
