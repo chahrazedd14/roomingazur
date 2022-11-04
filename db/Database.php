@@ -40,10 +40,16 @@ class Database
 
     private static function connectDB($host, $user, $pass, $dbname, $port)
     {
-        $mysqli = new mysqli($host, $user, $pass, $dbname, $port);
-        $mysqli->set_charset("utf8");
-        $mysqli->set_ssl(null, null, null, "DigiCertGlobalRootCA.crt.pem", null);
-        return $mysqli;
+                //$mysqli = new mysqli($host, $user, $pass, $dbname, $port);
+
+$mysqli = mysqli_init();
+mysqli_ssl_set($mysqli,NULL,NULL, __DIR__."/DigiCertGlobalRootCA.crt.pem", NULL, NULL); 
+mysqli_real_connect($mysqli, $host, $user, $pass, $dbname, $port, MYSQLI_CLIENT_SSL);
+
+       //$mysqli->options(MYSQLI_OPT_SSL_VERIFY_SERVER_CERT, true);
+       //$mysqli->set_charset("utf8");
+       //$mysqli->set_ssl(null, null, null, "DigiCertGlobalRootCA.crt.pem", null);
+       return $mysqli;
     }
 
 
@@ -73,7 +79,7 @@ class Database
         } else {
             $query .= "* ";
         }
-        $query .= "FROM " . $this->dbname . "." . $this->getTableName() . " ";
+        $query .= "FROM " . $this->mysqli->real_escape_string($this->dbname) . "." . $this->getTableName() . " ";
         if ($selection != null) {
             if ($selectionArgs != null) {
                 foreach ($selectionArgs as $selectionArg) {
