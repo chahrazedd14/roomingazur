@@ -40,7 +40,7 @@ function getEstablishment(){
 
 function add()
 {
-    $clientUrl = "https://sherazad.codeur.online/rooming/views/newlogin";
+    $clientUrl = DOMAIN."newlogin";
     if (isset($_POST["clientName"]) && isset($_POST["bookingId"]) && isset($_POST["date"]) &&
         isset($_POST["establishment"]) && isset($_POST["clientEmail"]) && isset($_FILES["files"])) {
 
@@ -84,7 +84,7 @@ function add()
         $content = str_replace("{booking_id}", $bookingId, $content);
         $content = str_replace("{{link}}", $clientUrl, $content);
         $uniqueId = uniqueId();
-        $uniqueLink = "https://sherazad.codeur.online/rooming/views/admin?u=".$uniqueId;
+        $uniqueLink = DOMAIN."admin?u=".$uniqueId;
         $content = str_replace("{unique_link}", $uniqueLink, $content);
         $content = str_replace("{etab}", $establishment, $content);
 
