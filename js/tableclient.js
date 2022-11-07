@@ -34,7 +34,7 @@ function editFun(e, id) {
 
     } else {
         btn.addClass('btn-primary');
-        btn.text('Save');
+        btn.empty().append("<img class=\"fit-picture\" src=\"../medias/fleche-vers-le-haut-de-sauvegarde-dans-le-cloud.png\" alt=\"save-icons\">");
         let classes = ['', 'arrive-date', '', 'first-name', 'last-name', 'birthday', 'observation-client'];
         let tr = e.parentElement.parentElement;
         let td = tr.querySelectorAll("td");
@@ -66,13 +66,15 @@ function editFun(e, id) {
 
 }
 
-let autoUpdateTimeout = null;
+let autoUpdateTimeout = [];
 
 function updateButtonState(elm) {
     let tr = elm.parentElement.parentElement;
     let input = tr.querySelectorAll("input");
     let valid = true;
-    clearTimeout(autoUpdateTimeout);
+    if(autoUpdateTimeout.hasOwnProperty(tr.getAttribute("data-id"))){
+        clearTimeout(autoUpdateTimeout[tr.getAttribute("data-id")]);
+    }
     for (let i of input) {
         if (i.classList.contains("observation-client")) {
             continue;
@@ -83,7 +85,7 @@ function updateButtonState(elm) {
     let btn = tr.querySelector(".save-edit-row");
     if (valid) {
         btn.classList.remove("disabled");
-        autoUpdateTimeout = setTimeout(function () {
+        autoUpdateTimeout[tr.getAttribute("data-id")] = setTimeout(function () {
             updateRow(btn);
         }, 1400);
     } else {
@@ -92,15 +94,24 @@ function updateButtonState(elm) {
 }
 
 function onInputClick(elm) {
-    clearTimeout(autoUpdateTimeout);
+    let tr = elm.parentElement.parentElement;
+    if(autoUpdateTimeout.hasOwnProperty(tr.getAttribute("data-id"))){
+        clearTimeout(autoUpdateTimeout[tr.getAttribute("data-id")]);
+    }
 }
 
 function onInputFocus(elm) {
-    clearTimeout(autoUpdateTimeout);
+    let tr = elm.parentElement.parentElement;
+    if(autoUpdateTimeout.hasOwnProperty(tr.getAttribute("data-id"))){
+        clearTimeout(autoUpdateTimeout[tr.getAttribute("data-id")]);
+    }
 }
 
 function onOvserverFocus(elm) {
-    clearTimeout(autoUpdateTimeout);
+    let tr = elm.parentElement.parentElement;
+    if(autoUpdateTimeout.hasOwnProperty(tr.getAttribute("data-id"))){
+        clearTimeout(autoUpdateTimeout[tr.getAttribute("data-id")]);
+    }
 }
 
 function lastPage() {

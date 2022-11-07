@@ -85,7 +85,7 @@ if (isset($_GET["logout"])){
             <div style="display: flex;justify-content: space-between;align-items: center;">
 
                 <h2><a id="logo" href="#"><img class="logo-mmv"
-                            src="https://share.mmv.fr/_data/i/upload/2022/09/06/20220906092007-b7b29418-me.png"
+                            src="../medias/logo.png"
                             alt="logo-mmv"></a></h2>
 
                 <div class="d-flex mobile-icon-wrapper">

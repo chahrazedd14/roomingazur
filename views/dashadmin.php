@@ -116,7 +116,7 @@ if(!isset($_SESSION["code"])){
                         <div class="booking-text">
 
                             <h4 class="head1">Télécharger un fichier CSV</h4>
-                            <p class="head1-text">Tous les champs sont obligatoire.
+                            <p class="head1-text">Tous les champs sont obligatoires.
                             </p>
                             <div id="app">
                                 <div class="container mx-auto flex flex-wrap h-screen px-0">
@@ -591,7 +591,7 @@ if(!isset($_SESSION["code"])){
 
                                             <div class="text-">
                                                 <h3 class="font-bold text-orange text-xl my-4">
-                                                    Fichier télécharger!
+                                                    Fichier téléchargé!
                                                 </h3>
 
                                                 <p class="text-sm">
@@ -663,9 +663,9 @@ if(!isset($_SESSION["code"])){
                                     </div>
                                     <div class="col-md-6">
                                         <div class="form-group">
-                                            <span class="form-label">Nnuméro de réservation</span>
+                                            <span class="form-label">Numéro de réservation</span>
                                             <input id="booking-id" class="form-control" type="text"
-                                                placeholder="Nnuméro de réservation">
+                                                placeholder="Numéro de réservation">
                                         </div>
                                     </div>
                                 </div>

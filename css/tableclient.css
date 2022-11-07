@@ -9,6 +9,14 @@ body {
 .container {
     width: 1439px !important;
 }
+button.save-edit-row.btn.btn-primary {
+    background: #9cdbbe;
+}
+
+div.dataTables_wrapper div.dataTables_info {
+    padding-top: 0.85em;
+    display: none;
+}
 .table-wrapper {
     background: #fff;
     padding: 20px 25px;
