@@ -514,7 +514,7 @@ body,
     font-weight: bold;
     cursor: pointer;
     margin-top: 3px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
     color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: 700;
@@ -596,7 +596,7 @@ body,
     color: white;
     cursor: pointer;
     margin-top: 3px;
-    margin-left: 10px;
+
     color: rgb(255, 255, 255);
     font-size: 16px;
     font-weight: 700;

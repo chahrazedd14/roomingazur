@@ -58,9 +58,7 @@ function editFun(e, id) {
                 }
             }
         }
-        if (!valid) {
-            btn.addClass("disabled");
-        }
+       
 
     }
 
