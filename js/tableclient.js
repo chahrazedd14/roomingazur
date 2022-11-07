@@ -41,7 +41,7 @@ function editFun(e, id) {
         let valid = true;
         for (let i = 0; i < td.length; i++) {
             var content = $(td[i]).html();
-            if (content == "") {
+            if (content == "" && td[i].querySelector(".observation-client") == null) {
                 valid = false;
             }
             if (i > 2 && i < 7) {
