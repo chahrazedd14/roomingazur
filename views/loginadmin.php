@@ -119,7 +119,7 @@ if (isset($_REQUEST['submit'])) {
     <div class="content --center">
         <div class="logo"></div>
         <button class="button __login --github" name="submit" type="submit">
-            Login With ad azure   Se connecter avec microsoft
+             Se connecter avec microsoft
         </button>
     </div>
 
