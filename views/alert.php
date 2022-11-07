@@ -5,13 +5,14 @@ require_once __DIR__ . "/vendor/PHPMailer/src/PHPMailer.php";
 require_once __DIR__ . "/vendor/PHPMailer/src/Exception.php";
 require_once __DIR__ . "/vendor/PHPMailer/src/SMTP.php";
 require_once __DIR__ . "/apiconfig.php";
+require_once __DIR__ . "/AzureCommunication.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 
 $database = new Database("customer");
 $query = $database->query(null, "confirm = 0 AND alert != 0", null, null, null, null);
 if ($query != null) {
-    $phpmailer = new PHPMailer();
+  /*  $phpmailer = new PHPMailer();
     $phpmailer->isSMTP();
     $phpmailer->Host = 'ssl0.ovh.net';
     $phpmailer->SMTPAuth = true;
@@ -22,8 +23,8 @@ if ($query != null) {
     $phpmailer->From = 'rooming@chahrazed-durand.com';
     $phpmailer->FromName = 'MMV Rooming';
     $phpmailer->Subject = "MMV Rooming";
-    $phpmailer->isHTML(true);
-    $content = file_get_contents( __DIR__ ."/relancemail.html");
+    $phpmailer->isHTML(true);*/
+    $content = file_get_contents(__DIR__ . "/relancemail.html");
 
     foreach ($query as $row) {
         $diff = strtotime($row["date"]) - time();
@@ -32,7 +33,7 @@ if ($query != null) {
         ];
         $content = str_replace("{booking_id}", $row["booking_id"], $content);
         $content = str_replace("{etab}", $row["establishment"], $content);
-        $uniqueLink = "https://sherazad.codeur.online/rooming/views/admin?u=".$query[0]["unique_id"];
+        $uniqueLink = "https://sherazad.codeur.online/rooming/views/admin?u=" . $query[0]["unique_id"];
         $content = str_replace("{unique_link}", $uniqueLink, $content);
 
         $rows = csvToArray($row["file"]);
@@ -54,12 +55,12 @@ if ($query != null) {
         $etabDb = new Database("establishment");
         $etabRows = $etabDb->query(["type", "logo"], "id = '" . $row["etab_id"] . "'", null, null,
             null, "1");
-           
-        if ($etabRows != null){
-            $content = str_replace("{etab_logo}",  DOMAIN.$etabRows[0]["logo"], $content);
+
+        if ($etabRows != null) {
+            $content = str_replace("{etab_logo}", DOMAIN . $etabRows[0]["logo"], $content);
             $content = str_replace("{etab_type}", $etabRows[0]["type"], $content);
         }
-        
+
         $secondsInAMinute = 60;
         $secondsInAnHour = 60 * $secondsInAMinute;
         $secondsInADay = 24 * $secondsInAnHour;
@@ -73,17 +74,21 @@ if ($query != null) {
         $minuteSeconds = $hourSeconds % $secondsInAnHour;
         $minutes = floor($minuteSeconds / $secondsInAMinute);
 
-        $timeText =  $days." days";
+        $timeText = $days . " days";
         $content = str_replace("{time}", $timeText, $content);
-        $phpmailer->Body = $content;
-        $phpmailer->addAddress($row["email"]);
 
+        /*$phpmailer->Body = $content;
+        $phpmailer->addAddress($row["email"]);*/
+
+
+        $azureCommunication = new AzureCommunication();
 
         //Test
-        $colVal["alert"] = 0;
+/*        $colVal["alert"] = 0;
         $database->update($colVal, "id = " . $row["id"], null, "1");
+
         $phpmailer->send();
-        continue;
+        continue;*/
         //Test end
 
         if (intval($row["alert"]) == -1) {
@@ -96,7 +101,8 @@ if ($query != null) {
             }
             if ($colVal["alert"] != -1) {
                 $database->update($colVal, "id = " . $row["id"], null, "1");
-                $phpmailer->send();
+//                $phpmailer->send();
+                $azureCommunication->sendMail($row["email"], "MMV Rooming", $content);
             }
         } else {
             if ($diff <= ((60 * 60) * 24) * 5 && intval($row["alert"]) == 1) {
@@ -106,9 +112,10 @@ if ($query != null) {
             }
             if ($colVal["alert"] != -1) {
                 $database->update($colVal, "id = " . $row["id"], null, "1");
-                if(!$phpmailer->send()){
+                $azureCommunication->sendMail($row["email"], "MMV Rooming", $content);
+                /*if (!$phpmailer->send()) {
                     echo "Failed";
-                }
+                }*/
             }
         }
 

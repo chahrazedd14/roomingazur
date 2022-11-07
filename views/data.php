@@ -5,6 +5,7 @@ require_once "../db/Database.php";
 require_once "vendor/PHPMailer/src/PHPMailer.php";
 require_once "vendor/PHPMailer/src/Exception.php";
 require_once "vendor/PHPMailer/src/SMTP.php";
+require_once "AzureCommunication.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -36,7 +37,7 @@ function sendConfirm()
             null, "id desc", "1");
         if ($query != null) {
             $file = $query[0]["file"];
-            $phpmailer = new PHPMailer();
+           /* $phpmailer = new PHPMailer();
             $phpmailer->isSMTP();
             $phpmailer->CharSet  = "UTF-8"; 
             $phpmailer->Host = 'ssl0.ovh.net';
@@ -52,7 +53,11 @@ function sendConfirm()
             $phpmailer->addAddress("c.durand@mmv.fr");
             $phpmailer->Body = "Client " . $email . " a remplir la romming";
             $phpmailer->addStringAttachment($file, "Booking " . $query[0]["booking_id"] . "-V" . ($query[0]["modified"] + 1) . ".csv");
-            if ($phpmailer->send()) {
+            */
+            $azureCommunication = new AzureCommunication();
+            if ($azureCommunication->sendMail("c.durand@mmv.fr", "MMV Rooming",
+                "Client " . $email . " a remplir la romming", $file,
+                "Booking " . $query[0]["booking_id"] . "-V" . ($query[0]["modified"] + 1) . ".csv", "txt")) {
                 $result["status"] = "success";
                 $colVal = [
                     "confirm" => "1",

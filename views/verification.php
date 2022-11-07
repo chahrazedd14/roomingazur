@@ -3,10 +3,11 @@ require_once "../db/Database.php";
 require_once "vendor/PHPMailer/src/PHPMailer.php";
 require_once "vendor/PHPMailer/src/Exception.php";
 require_once "vendor/PHPMailer/src/SMTP.php";
+require_once "AzureCommunication.php";
 
 use PHPMailer\PHPMailer\PHPMailer;
 
-$phpmailer = new PHPMailer();
+/*$phpmailer = new PHPMailer();
 $phpmailer->isSMTP();
 $phpmailer->Host = 'ssl0.ovh.net';
 $phpmailer->SMTPAuth = true;
@@ -17,7 +18,9 @@ $phpmailer->Password = 'Sherashera2626';
 $phpmailer->From = 'roomnig@chahrazed-durand.com';
 $phpmailer->FromName = 'MMV Rooming';
 $phpmailer->Subject = "Verification code";
-$phpmailer->isHTML(true);
+$phpmailer->isHTML(true);*/
+
+$azureCommunication = new AzureCommunication();
 
 if (isset($_POST["type"]) && $_POST["type"] == "login") {
     $result = [
@@ -42,14 +45,14 @@ if (isset($_POST["type"]) && $_POST["type"] == "login") {
             $digits = 4;
             $code = str_pad(rand(0, pow(10, $digits) - 1), $digits, '0', STR_PAD_LEFT);
 
-            $phpmailer->addAddress($_POST["email"]);
+//            $phpmailer->addAddress($_POST["email"]);
             $content = file_get_contents("emailpassword.html");
             $content = str_replace("{code}", $code, $content);
             $content = str_replace("{booking_id}", $_POST["code"], $content);
             $uniqueLink = "https://sherazad.codeur.online/rooming/views/admin?u=" . $matched[0]["unique_id"];
             $content = str_replace("{unique_link}", $uniqueLink, $content);
-            $phpmailer->Body = $content;
-            if ($phpmailer->send()) {
+//            $phpmailer->Body = $content;
+            if ($azureCommunication->sendMail($_POST["email"], "Verification code", $content)) {
                 $insert = $verificationDatabase->insert(
                     [
                         "email" => $_POST["email"],

@@ -5,6 +5,9 @@ require_once "vendor/PHPMailer/src/Exception.php";
 require_once "vendor/PHPMailer/src/SMTP.php";
 require_once "data.php";
 require_once "apiconfig.php";
+require_once "AzureCommunication.php";
+
+
 
 use PHPMailer\PHPMailer\PHPMailer;
 
@@ -67,7 +70,7 @@ function add()
         $clientEmail = $_POST["clientEmail"];
         $files = $_FILES["files"];
 
-        $phpmailer = new PHPMailer();
+        /*$phpmailer = new PHPMailer();
         $phpmailer->isSMTP();
         $phpmailer->Host = 'ssl0.ovh.net';
         $phpmailer->SMTPAuth = true;
@@ -79,7 +82,9 @@ function add()
         $phpmailer->FromName = 'MMV Rooming';
         $phpmailer->Subject = "MMV Rooming";
         $phpmailer->isHTML(true);
-        $phpmailer->addAddress($clientEmail);
+        $phpmailer->addAddress($clientEmail);*/
+
+
         $content = file_get_contents("email.html");
         $content = str_replace("{booking_id}", $bookingId, $content);
         $content = str_replace("{{link}}", $clientUrl, $content);
@@ -117,7 +122,7 @@ function add()
             }
         }
 
-        $phpmailer->Body = $content;
+//        $phpmailer->Body = $content;
 
         $result = [
             "status" => "fail",
@@ -127,7 +132,10 @@ function add()
         $exists = $database->query(null, "email = '" . $clientEmail . "' AND booking_id = '" . $bookingId . "'",
             null, null, null, null);
 
-        if ($exists == null && $phpmailer->send()) {
+        $azureCommunication = new AzureCommunication();
+
+
+        if ($exists == null && $azureCommunication->sendMail($clientEmail, "MMV Rooming", $content)) {
             $colVal = [
                 "email" => $clientEmail,
                 "name" => $clientName,
@@ -151,7 +159,8 @@ function add()
             if ($exists){
                 $result["message"] = "Booking ID exists with that email";
             }else{
-                $result["message"] = $phpmailer->ErrorInfo;
+//                $result["message"] = $phpmailer->ErrorInfo;
+                $result["message"] = "Something went wrong";
             }
         }
         echo json_encode($result);
