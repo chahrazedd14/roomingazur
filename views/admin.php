@@ -130,7 +130,7 @@ if (isset($_GET["logout"])){
                     </div>
                     <div class="col-sm-8">
                         <a href="#" class="btn btn-primary" onclick="window.location.reload()">enregistrer la rooming</a>
-                        <button id="confirm" class="btn btn-primary disabled mr-10">Validation liste de donnée</button>
+                        <button id="confirm" class="btn btn-primary disabled mr-10">valider et envoyer la rooming</button>
                     </div>
                 </div>
                 
@@ -196,7 +196,7 @@ Vous pourrez la retrouver à tout moment pour la modifier si besoin »
                         <th>Prénom de l'occupant</th>
                         <th>Date de naissance</th>
                         <th>Observation</th>
-                        <th>Editer</th>
+                        <th>Modifier</th>
                     </tr>
                 </thead>
                 <tbody>

@@ -141,7 +141,7 @@ Merci de le renseigner ci-dessous
                         </section>
 
                         <section class="verification__timeout">
-                            <p id="verification-counter-text">
+                            <p  id="verification-counter-text">
                             attendez svp<strong class="verification__counter">00 : 00</strong> secondes pour envoyer un nouveau code
                             </p>
                             <button id="verification-send-new" type="button" class="verification__send_new">obtenir un nouveau code</button>
