@@ -11,7 +11,7 @@ class AzureCommunication
     public function sendMail($to, $subject, $content, $attachment = null, $attachmentName = null,
                              $attachmentType = "binary")
     {
-        $from = "DoNotReply@6b6ba55a-4351-487d-ad25-a703e637b445.azurecomm.net";
+        $from = "mmvrooming@6b6ba55a-4351-487d-ad25-a703e637b445.azurecomm.net";
         $endpoint = "https://mmvcommunications2.communication.azure.com/emails:send?api-version=2021-10-01-preview";
         $dt = new DateTime('UTC');
         $sentDate = $dt->format('D, d M Y H:i:s \G\M\T');
@@ -34,7 +34,7 @@ class AzureCommunication
                 "to" => [
                     [
                         "email" => $to,
-                        "displayName" => "Shera"
+                        "displayName" => "service client"
                     ]
                 ]
             ]

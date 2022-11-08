@@ -23,6 +23,40 @@ if (isset($_POST["type"]) && $_POST["type"] == "get") {
     sendConfirm();
 }
 
+
+
+          /*  $phpmailer = new PHPMailer();
+            $phpmailer->isSMTP();
+            $phpmailer->CharSet  = "UTF-8"; 
+            $phpmailer->Host = 'ssl0.ovh.net';
+            $phpmailer->SMTPAuth = true;
+            $phpmailer->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;
+            $phpmailer->Port = 587;
+            $phpmailer->Username = 'emails@chahrazed-durand.com';
+            $phpmailer->Password = 'Sherashera2626';
+            $phpmailer->From = 'emails@chahrazed-durand.com';
+            $phpmailer->FromName = 'MMV Rooming';
+            $phpmailer->Subject = "MMV Rooming";
+            $phpmailer->isHTML(false);
+            $phpmailer->addAddress("shera.mng@gmail.com");
+            $phpmailer->Body = "Test"; 
+            $phpmailer->send();           
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 function sendConfirm()
 {
     session_name("client");
@@ -55,7 +89,7 @@ function sendConfirm()
             $phpmailer->addStringAttachment($file, "Booking " . $query[0]["booking_id"] . "-V" . ($query[0]["modified"] + 1) . ".csv");
             */
             $azureCommunication = new AzureCommunication();
-            if ($azureCommunication->sendMail("c.durand@mmv.fr", "MMV Rooming",
+            if ($azureCommunication->sendMail("serviceclient@mmv.fr", "MMV Rooming - ".$email . " - ".$query[0]["booking_id"],
                 "Client " . $email . " a remplir la romming", $file,
                 "Booking " . $query[0]["booking_id"] . "-V" . ($query[0]["modified"] + 1) . ".csv", "txt")) {
                 $result["status"] = "success";

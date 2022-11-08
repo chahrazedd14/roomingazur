@@ -134,8 +134,9 @@ function add()
 
         $azureCommunication = new AzureCommunication();
 
-
-        if ($exists == null && $azureCommunication->sendMail($clientEmail, "MMV Rooming", $content)) {
+        if(strlen($bookingId) != 7){
+            $result["message"] = "Booking ID must be 7 digit";
+        } elseif ($exists == null && $azureCommunication->sendMail($clientEmail, "MMV Rooming", $content)) {
             $colVal = [
                 "email" => $clientEmail,
                 "name" => $clientName,

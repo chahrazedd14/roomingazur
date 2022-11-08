@@ -25,12 +25,12 @@ if (isset($_SESSION["email"]) && isset($_SESSION["booking_id"])) {
     $exists = $database->query(null, "email = '" . $_SESSION["email"] . "' AND booking_id = ".$_SESSION["booking_id"],
         null, null, null, "1");
     if ($exists == null) {
-        header("Location: newlogin.php");
-        exit();
+       // header("Location: newlogin.php");
+       // exit();
     }
 }else{
-    header("Location: newlogin.php");
-    exit();
+   // header("Location: newlogin.php");
+   // exit();
 }
 
 if (isset($_GET["logout"])){
@@ -50,7 +50,7 @@ if (isset($_GET["logout"])){
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Rooming Managment</title>
+    <title>Rooming Management</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto|Varela+Round">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -100,8 +100,7 @@ if (isset($_GET["logout"])){
                                 <div class="customtop-icons"><a href="tel:+33(0)492124321"
                                         class="blanctext top-telf"></a></div>
                                 <div class="customtop-text"><a href="tel:+33(0)492124321" class="blanctext"><span
-                                            class="top-telf">04 92 12 43 21</span><br>Lundi-Vendredi : 9h-19h<br>Samedi
-                                        : 9h-18h</a></div>
+                                            class="top-telf">04 92 12 43 21</span><br>9h à 13h et de 14h à 18h  <br> du lundi au vendredi</a></div>
                             </div>
                             
                             <div class="disconnect">
@@ -126,14 +125,29 @@ if (isset($_GET["logout"])){
             <div class="table-title">
                 <div class="row">
                     <div class="col-sm-4">
-                        <h2> <b>Rooming Management</b></h2>
+                        <h2> <b>Saisie de rooming</b></h2>
+                        
                     </div>
                     <div class="col-sm-8">
-                        <a href="#" class="btn btn-primary" onclick="window.location.reload()"><i
-                                class="material-icons">&#xE863;</i></a>
+                        <a href="#" class="btn btn-primary" onclick="window.location.reload()">enregistrer la rooming</a>
                         <button id="confirm" class="btn btn-primary disabled mr-10">Validation liste de donnée</button>
                     </div>
                 </div>
+                
+            </div>
+            <div class="table-title bg-dark">
+                <div class="row">
+                    <div class="col-sm-4 d-content">
+                       <p class="color-green">« Si vous cliquez sur le bouton vert, votre rooming sera validée et envoyée automatiquement au service client.
+
+Vous pourrez la retrouver à tout moment pour la modifier si besoin »
+</p><p class="color-orange">
+« Si vous cliquez sur le bouton orange, votre rooming sera enregistrée et vous pourrez en reprendre la saisie plus tard »</p>
+                        
+                    </div>
+                  
+                </div>
+                
             </div>
             <div class="table-filter">
                 <div class="row">

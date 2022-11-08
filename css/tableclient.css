@@ -302,6 +302,10 @@ display: none;
 a.blanctext {
     color: #1e1e1e;
 }
+.color-green{
+color: #9cdbbe;}
+.color-orange{
+color: #ff622c;}
 
 .d-flex{
     display: flex;
@@ -315,6 +319,8 @@ a.blanctext {
 .top-telf{
     font-weight: 700;
 }
+.d-content{
+display: contents !important;}
 .pr-2{
     padding: 10px;
 }

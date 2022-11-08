@@ -55,8 +55,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["booking_id"])) {
                             <div class="customtop-icons"><a href="tel:+33(0)492124321" class="blanctext top-telf"></a>
                             </div>
                             <div class="customtop-text"><a href="tel:+33(0)492124321" class="blanctext"><span
-                                        class="top-telf font-weight-bold">04 92 12 43 21</span><br>Lundi-Vendredi :
-                                    9h-19h</a></div>
+                                        class="top-telf font-weight-bold">04 92 12 43 21</span><br>9h à 13h et de 14h à 18h  <br> du lundi au vendredi</a></div>
                         </div>
                     </div>
                 </div>
@@ -97,7 +96,7 @@ if (isset($_SESSION["email"]) && isset($_SESSION["booking_id"])) {
                                 </svg></button>
                         </div>
                         <div class="password">
-                            <input id="password" class="second" type="password" placeholder="Nnuméro de réservation" />
+                            <input id="password" class="second" type="password" placeholder="Numéro de réservation" />
                             <button class="login">Connexion</button>
                         </div>
                     </div>

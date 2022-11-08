@@ -167,21 +167,10 @@ button.white_background:hover a{
 
   <!-- CSS newsletter : BEGIN -->
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 
-    @font-face {
-      font-family: 'BelyDisplay';
-      src: url('../fonts/BelyDisplay.ttf');
-    }
-
-
-    body {
-      font-family: 'Montserrat', sans-serif !important;
-    }
 
     .style-etab {
       text-transform: uppercase;
-      font-family: 'BelyDisplay', sans-serif;
       font-weight: 800;
       font-size: 24px;
       color: #006f77;
@@ -221,6 +210,7 @@ button.white_background:hover a{
       padding-top: 49px;
       padding-bottom: 40px;
       background: #9cdbbe !important;
+      
     }
 
     .logo img {
@@ -228,6 +218,7 @@ button.white_background:hover a{
       margin-left: auto;
       display: block;
       margin-right: auto;
+      width: 148px !important;
     }
 
     .banner_italwares {
@@ -338,12 +329,12 @@ button.white_background:hover a{
               <tr class="logo_main_wrp">
                 <td class="logo_wrp_top">
                   <div class="text intro_text"
-                    style="text-align: center;text-transform: uppercase;font-family: 'BelyDisplay',sans-serif;font-weight: 800;font-size: 15px;color: #006f77;padding: 25px;text-align: center;">
+                    style="text-align: center;text-transform: uppercase;font-weight: 800;font-size: 15px;color: #006f77;padding: 25px;text-align: center;">
                     La saisie de votre rooming pour votre sejour <strong> <br> DU {start_date} au {end_date}</strong>
                     sur notre <br> <span
-                      style=" text-transform: uppercase;font-family: 'BelyDisplay', sans-serif;font-weight: 800;font-size: 19px;color:#006f77;">{etab_type}
+                      style=" text-transform: uppercase;font-weight: 800;font-size: 19px;color:#006f77;">{etab_type}
                     </span> <span
-                      style=" text-transform: uppercase;font-family: 'BelyDisplay', sans-serif;font-weight: 800;font-size: 19px;color:#006f77;">
+                      style=" text-transform: uppercase;font-weight: 800;font-size: 19px;color:#006f77;">
                       {etab}</span>
                   </div>
                 </td>
@@ -421,9 +412,9 @@ button.white_background:hover a{
                                     <table cellpadding="0" cellspacing="0">
                                       <tr>
 
-                                        <td width="" style="font-size:0; line-height:0;"><span style="font-family: Montserrat,sans-serif;font-weight: 600;font-size: 14px;padding: 2px 6px;color: #fff;background-color: var(--greenew);margin-bottom: 0;
+                                        <!-- <td width="" style="font-size:0; line-height:0;"><span style="font-weight: 600;font-size: 14px;padding: 2px 6px;color: #fff;background-color: var(--greenew);margin-bottom: 0;
                                           margin-left: 2p; margin-right: 5px;text-transform: uppercase;
-                                          background: #006f77;">{etab_type}</span></td>
+                                          background: #006f77;">{etab_type}</span></td> -->
                                         <td class="wi-17 pr-5"
                                           style="line-height:1px; font-size:1px; mso-line-height-rule:at-least;">
                                           <img src="{rating}" width="50" style="width:50px; vertical-align:top;"
@@ -438,7 +429,7 @@ button.white_background:hover a{
                                 <tr>
                                   <td class="fs-16 lh-24 pb-25"
                                     style="padding:0 0 33px; font:700 16px/20px Arial, Helvetica, sans-serif; color:#1e1e1e;">
-                                    A noter : pour chacune des participants, vous devrez compl&eacute;ter <br> son nom,
+                                    A noter : pour chacun des participants, vous devrez compl&eacute;ter <br> son nom,
                                     son pr&eacute;nom et sa date de naissance. <br>
                                     N&#8217;h&eacute;sitez pas &#224; nous contacter si besoin : <br>
                                     - Par mail : <a
@@ -465,7 +456,7 @@ button.white_background:hover a{
                                               <!-- <td>
                                                 <th class="tflex" width="140" height="20"></th>
                                           </td> -->
-                                                <td style="background: #ed4410;text-decoration: none;display: block;padding: 15px 15px;width: 56%;font-weight: 700">
+                                                <td style="background: #ed4410;text-decoration: none;display: block;padding: 15px 15px;width: 66%;font-weight: 700">
                                                   <a style="color: white;" href="{unique_link}">Remplir le Formulaire &rarr;</a>
                                                 </td>
                                              
@@ -491,45 +482,15 @@ button.white_background:hover a{
             </table>
             <!-- images -->
 
-        <tr style="background-color: rgb(240,249,250);">
+        <!-- <tr style="background-color: rgb(240,249,250);">
           <td class="" style="background: url('{etab_logo}') no-repeat center top; background-position: center; height: 550px;">
             <table width="600" align="center" style="max-width:600px; width:600px !important; margin:0 auto;"
               cellpadding="0" cellspacing="0">
-              <tr>
-                <td class="ptb-20"
-                  style="padding:40px 24px;  box-shadow:0 100px 100px -50px rgba(0,0,0,.2); position:relative;">
-                  <!-- <table width="650" align="center" style="max-width:650px; width:600px !important; margin:0 auto;"
-                    cellpadding="0" cellspacing="0">
-                    <tr>
-
-                      <img src="{etab_logo}" alt="">
-              
-
-                      <th class="tflex" align="left" style="vertical-align:bottom;">
-                        <table width="600px" cellpadding="0" cellspacing="0">
-                         
-                        </table>
-                      </th>
-                    </tr>
-                  </table> -->
-                </td>
-              </tr>
-
-
-
-              <!-- footer top image -->
-              <tr>
-                <td style="background: url('{etab_logo}') no-repeat center top;">
-
-
-                </td>
-              </tr>
-            </table>
-          </td>
-        </tr>
+             
+     
       </table>
       </td>
-      </tr>
+      </tr> -->
       </table>
      
       </td>
@@ -542,7 +503,7 @@ button.white_background:hover a{
             <p><strong class="color: #ed4410;font-size: 17px;">mmv, Rooming</strong><br /> </p>
           </td>
         </tr>
-        <br>
+        <!-- <br>
         <tr class="social_wrp">
           <td style="text-align: center;">
             <p style="padding: 0 0 4px;font: 700 12px/20px Arial,Helvetica,sans-serif;color: #1e1e1e;">85% de nos
@@ -563,7 +524,7 @@ button.white_background:hover a{
                 src="https://www.mmv.fr/fstrz/r/s/media.resalys.com/mmv_new/images/icons/youtube.png" loading="lazy"
                 alt="yotube" title="tripadvisor" width="40" height="40"></a>
           </td>
-        </tr>
+        </tr> -->
       </table>
 
     </div>

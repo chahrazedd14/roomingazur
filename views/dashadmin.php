@@ -28,7 +28,7 @@ if(!isset($_SESSION["code"])){
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>MMV Romming</title>
+    <title>MMV-Romming App</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
@@ -116,7 +116,7 @@ if(!isset($_SESSION["code"])){
                         <div class="booking-text">
 
                             <h4 class="head1">Télécharger un fichier CSV</h4>
-                            <p class="head1-text">Tous les champs sont obligatoires.
+                            <p class="head1-text">Le fichier rooming exporté de Resalys
                             </p>
                             <div id="app">
                                 <div class="container mx-auto flex flex-wrap h-screen px-0">
@@ -147,7 +147,7 @@ if(!isset($_SESSION["code"])){
 
                                                     <div class="text-center">
                                                         <p class="mt-3 text-xl">
-                                                            <b>Glisser ou déposer un fichiers ici</b>
+                                                            <b>Glisser ou déposer un fichier ici</b>
                                                         </p>
 
                                                         <p class="font-sm mb-4">OU</p>
@@ -594,10 +594,10 @@ if(!isset($_SESSION["code"])){
                                                     Fichier téléchargé!
                                                 </h3>
 
-                                                <p class="text-sm">
+                                                <!-- <p class="text-sm">
                                                     C'est ça! Votre dossier a été Crée. <br>
                                                     N'oubliez pas de remplir le formulaire.
-                                                </p>
+                                                </p> -->
                                             </div>
                                         </div>
 
@@ -611,12 +611,12 @@ if(!isset($_SESSION["code"])){
                                                 </p>
                                             </div>
 
-                                            <div class="mt-3 text-center flex items-center justify-center flex-grow">
+                                            <!-- <div class="mt-3 text-center flex items-center justify-center flex-grow">
                                                 <button type="button" class="button" @click="onReset">
 
                                                     TÉLÉCHARGER PLUS
                                                 </button>
-                                            </div>
+                                            </div> -->
 
 
                                         </div>
@@ -664,7 +664,7 @@ if(!isset($_SESSION["code"])){
                                     <div class="col-md-6">
                                         <div class="form-group">
                                             <span class="form-label">Numéro de réservation</span>
-                                            <input id="booking-id" class="form-control" type="text"
+                                            <input id="booking-id" class="form-control" type="number"
                                                 placeholder="Numéro de réservation">
                                         </div>
                                     </div>

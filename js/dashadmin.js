@@ -15,6 +15,12 @@ function getEstablishment() {
     })
     http.start();
 }
+let bookingId = document.getElementById("booking-id");
+bookingId.onkeydown = (e) =>{
+    if(bookingId.value.length >= 7){
+        return false;
+    }
+}
 let booking = document.getElementById("booking");
 let submit = document.getElementById("submit");
 let msg = document.createElement("div");
@@ -27,7 +33,6 @@ submit.addEventListener("click", (e) => {
         return;
     }
     let clientName = document.getElementById("client-name");
-    let bookingId = document.getElementById("booking-id");
     let date = document.getElementById("date");
     let establishment = document.getElementById("establishment");
     let clientEmail = document.getElementById("client-email");
@@ -74,6 +79,8 @@ submit.addEventListener("click", (e) => {
         }, 2100);
         return;
     }
+
+    
 
     let formData = new FormData();
     formData.append("type", "add");
